@@ -134,9 +134,9 @@ img {
 
 /* explain when the active class is added in javascript */
 
-/* #header .nav-list {
+#header .nav-list ul.active{
   left: 0;
-} */
+}
 
 #header .nav-list ul a {
   font-size: 2rem;
@@ -174,6 +174,60 @@ img {
 
 /* hamburger code goes here */
 
+#header .hamburger {
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  border: 3px solid white;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  transform: scale(0.8);
+  margin-right: 20px;
+}
+#header .hamburger::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  animation: hamburger_plus 1s ease infinite;
+}
+#header .hamburger .bar {
+  height: 2px;
+  width: 30px;
+  background-color: white;
+  position: relative;
+  z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  left: 0;
+}
+#header .hamburger .bar::after {
+  top: 8px;
+}
+#header .hamburger .bar::before {
+  bottom: 8px;
+}
+#header .hamburger.active .bar::after {
+  display: none;
+  bottom: 0;
+}
+#header .hamburger.active .bar::before {
+  display: none;
+  top: 0;
+}
 /* header section ends here */
 
 /* hero section starts here */
@@ -324,35 +378,32 @@ img {
 /* service section ends here */
 /* project section starts here */
 
-
 #projects .projects {
   flex-direction: column;
   max-width: 1200px;
-  margin:0 auto;
+  margin: 0 auto;
   padding: 80px 0;
 }
-#projects .projects-header h1{
+#projects .projects-header h1 {
   margin-bottom: 50px;
 }
-#projects .all-projects{
+#projects .all-projects {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
-#projects .project-item{
+#projects .project-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 80%;
-  margin:20px auto ;
+  margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
-
 }
-#projects .project-info{
+#projects .project-info {
   display: flex;
   padding: 30px;
   flex-basis: 50%;
@@ -361,63 +412,62 @@ img {
   justify-content: center;
   flex-direction: column;
   color: white;
-  background-image: linear-gradient(60deg, #29323c 10%,#0f1318 100%);
+  background-image: linear-gradient(60deg, #29323c 10%, #0f1318 100%);
 }
-#projects .project-info h1{
+#projects .project-info h1 {
   font-size: 4rem;
   font-weight: 400;
 }
-#projects .project-info h2{
+#projects .project-info h2 {
   font-size: 1.8rem;
   font-weight: 500;
   margin-top: 10px;
 }
-#projects .project-info p{
+#projects .project-info p {
   color: white;
 }
-#projects .project-img{
+#projects .project-img {
   flex-basis: 50%;
   height: 300px;
   overflow: hidden;
   position: relative;
 }
-#projects .project-img::after{
+#projects .project-img::after {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 10%,#0f1318 100%);
+  background-image: linear-gradient(60deg, #29323c 10%, #0f1318 100%);
   opacity: 0.5;
 }
-#projects .project-item:hover .project-img{
+#projects .project-item:hover .project-img {
   transform: scale(1.1);
 }
-#projects .project-img img{
+#projects .project-img img {
   transition: 0.3s ease transform;
 }
 /* project section ends here */
 /* about section starts here */
-#about .about{
+#about .about {
   flex-direction: column;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 100px 20px;
-  
 }
-#about .col-left{
+#about .col-left {
   width: 250px;
   height: 360px;
 }
-#about .col-left .about-img{
-height: 100%;
-width: 100%;
-position: relative;
-border: 10px solid white;
+#about .col-left .about-img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border: 10px solid white;
 }
-#about .col-left .about-img::after{
+#about .col-left .about-img::after {
   content: "";
   position: absolute;
   left: -33px;
@@ -428,34 +478,106 @@ border: 10px solid white;
   z-index: -1;
 }
 
-
-#about .col-right{
+#about .col-right {
   width: 100%;
 }
-#about .col-right h2{
+#about .col-right h2 {
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: 0.2rem;
   margin-bottom: 10px;
 }
-#about .col-right p{
+#about .col-right p {
   margin-bottom: 20px;
-
 }
-#about .col-right .cta{
+#about .col-right .cta {
   color: black;
   margin-bottom: 50px;
   padding: 10px 20px;
   font-size: 2rem;
-
 }
 
+/* end of about section */
+/* contact section begins here */
+#contact .contact {
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 98%;
+}
+#contact .contact-items {
+  width: 100%;
+}
+#contact .contact-item {
+  width: 80%;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 18px 0px #747474;
+}
+#contact .contact-item:hover {
+  box-shadow: 0px 0px 5px 0px #747474;
+}
+#contact .icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+}
+#contact .contact-info h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+#contact .contact-info h2 {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+/* footer section starts here */
+#footer {
+  background-color: #485563;
+}
+#footer .footer {
+  min-height: 200px;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+#footer h2 {
+  color: white;
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#footer .footer .social-icon {
+  display: flex;
+  margin-bottom: 30px;
+}
+#footer .social-item {
+  height: 40px;
+  width: 40px;
+  margin: 10px 15px;
+}
 
-
-
-
-
-
+#footer .social-item img {
+  filter: grayscale(1);
+  transition: 0.3s ease filter;
+}
+#footer .social-item img:hover {
+  filter: grayscale(0);
+}
+#footer p {
+  color: white;
+  font-size: 1.8rem;
+}
+/* footer section ends here */
 
 /* Keyframes start here */
 @keyframes text_reveal_box {
@@ -479,6 +601,17 @@ border: 10px solid white;
 @keyframes text_reveal_name {
   100% {
     color: crimson;
+  }
+}
+/* keyframes for hamburger */
+@keyframes hamburger_plus {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
   }
 }
 
